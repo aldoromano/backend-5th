@@ -13,10 +13,6 @@ const client = mailgun.client({
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  console.log("Welcome to 5th backend...");
-});
-
 router.post("/form", async (req, res) => {
   console.log("Contact ....");
 

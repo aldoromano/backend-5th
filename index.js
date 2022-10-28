@@ -6,6 +6,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  console.log("Welcome to 5th backend...");
+  res.json("Hello world !!!!");
+});
+
 const routeContact = require("./routes/contact");
 
 app.use(routeContact);
