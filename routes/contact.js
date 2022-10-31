@@ -7,7 +7,6 @@ require("dotenv").config();
 const mailgun = new Mailgun(formData);
 const client = mailgun.client({
   username: "John Doe",
-  //key: "6be32fa5b8aaf24de32be780f14778d8-8845d1b1-6ee2d9bd" /* VOTRE CLÉ API */,
   key: process.env.MAIL_KEY_API /* VOTRE CLÉ API */,
 });
 
@@ -28,7 +27,6 @@ router.post("/form", async (req, res) => {
     //   Fonctions fournies par le package mailgun pour créer le mail et l'envoyer, en premier argument de `create`, votre nom de domaine :
     client.messages
       .create(
-        // "sandbox3766a7085055421da9ff64a9f32cdf5d.mailgun.org",
         process.env.MAIL_DOMAIN,
         messageData
       ) /* VOTRE NOM DE DOMAINE SE TERMINANT PAR `.mailgun.org` */
@@ -45,6 +43,3 @@ router.post("/form", async (req, res) => {
 });
 
 module.exports = router;
-
-//6be32fa5b8aaf24de32be780f14778d8-8845d1b1-6ee2d9bd
-//https://app.mailgun.com/app/sending/domains/sandbox3766a7085055421da9ff64a9f32cdf5d.mailgun.org
